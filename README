@@ -1,3 +1,6 @@
 This project is related to my blog post on 2 August, 2013 on developer.force.com.
 
 This code attempts to show how embedding a Visual Workflow flow in a Visualforce page enables a developer to begin to work with the UI elements of the flow to give access to features not currently available in the Visual Workflow UI.
+
+Install unmanaged package from here:
+https://login.salesforce.com/packaging/installPackage.apexp?p0=04tG00000002d4A
