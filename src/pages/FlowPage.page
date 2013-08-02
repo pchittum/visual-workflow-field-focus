@@ -1,0 +1,40 @@
+<apex:page tabStyle="Opportunity" >
+    
+    <!-- 
+        - TODO: Add a tag to use your new flow on this VF page.
+        - TODO: Use the finishLocation attribute an bind to the URL parameter retURL
+                so that your flow will return you to the desired page when complete.
+    -->
+    <flow:interview name="New_Account_Contact_Opportunity" ></flow:interview>
+<script>
+    setFocus();    
+
+    function getApexElementByID(tagname, eid) {
+        /* 
+        this custom JS function gives us the ability to search and 
+        return HTML elements rendered by visualforce from any JS function.
+        It only works for elements whose name is unique on the page.
+        */
+       var tags = document.getElementsByTagName(tagname);
+        var regex = new RegExp(":" + eid + "$");
+        for (var i=0; i < tags.length; i++) {
+            if (tags[i].getAttribute("id") != null) {
+                var idVal = tags[i].getAttribute("id");
+                var pos = idVal.search(regex);
+                if (pos != -1) return tags[i];
+            }
+        }
+        return null;
+    }     
+
+    function setFocus() {
+        //j_id0:j_id1:i:f:pb:d:Opportunity_Stage.Opportunity_Prospecting.radio
+        var focusTag;
+        if (focusTag = getApexElementByID("input","Opportunity_Stage\.Opportunity_Prospecting\.radio")){
+        	focusTag.focus();
+        } else if (focusTag = getApexElementByID("input","Account_Name\.input")){
+            focusTag.focus();
+        }
+    }
+</script>
+</apex:page>
